@@ -20,10 +20,12 @@
   },
   "homepage": "https://github.com/ze25800000/mmall-fe#readme",
   "devDependencies": {
-    "webpack": "^1.15.0",
     "css-loader": "^0.28.1",
+    "extract-text-webpack-plugin": "1.0.1",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
     "style-loader": "^0.17.0",
-    "extract-text-webpack-plugin": "1.0.1"
+    "webpack": "^1.15.0"
   },
   "dependencies": {}
 }
