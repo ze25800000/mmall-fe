@@ -40,6 +40,14 @@ var config = {
             {test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100&name=resource/[name].[ext]'},
         ]
     },
+    resolve: {
+        alias: {
+            util: __dirname + '/src/util',
+            page: __dirname + '/src/page',
+            image: __dirname + '/src/image',
+            service: __dirname + '/src/service',
+        }
+    },
     plugins: [
         //提取公共模块，将独立通用模块放到js/base.js中
         new webpack.optimize.CommonsChunkPlugin({
