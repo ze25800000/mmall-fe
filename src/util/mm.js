@@ -1,3 +1,6 @@
+var conf = {
+    serverHost: ''
+};
 var _mm = {
     //网络请求
     request: function (param) {
@@ -6,7 +9,7 @@ var _mm = {
             type: param.method || 'get',
             url: param.url || '',
             dataType: param.type || 'json',
-            data: param.data | '',
+            data: param.data ||'',
             success: function (res) {
                 if (0 === res.status) {//请求成功
                     typeof param.success === 'function' && param.success(res.data, res.msg);
@@ -20,6 +23,16 @@ var _mm = {
                 typeof param.error === 'function' && param.error(err.statusText);
             }
         })
+    },
+    //获取服务器地址
+    getServerUrl: function (path) {
+        return conf.serverHost + path;
+    },
+    //获取URL参数
+    getUrlParam: function (name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+        var result = window.location.search.substr(1).match(reg);
+        return result ? decodeURIComponent(result[2]) : null;
     },
     // 统一登录处理
     doLogin: function () {
