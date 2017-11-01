@@ -42,6 +42,7 @@ var config = {
     },
     resolve: {
         alias: {
+            node_modules: __dirname + '/node_modules',
             util: __dirname + '/src/util',
             page: __dirname + '/src/page',
             image: __dirname + '/src/image',
