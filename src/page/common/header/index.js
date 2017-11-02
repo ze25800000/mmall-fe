@@ -14,7 +14,6 @@ var header = {
         var _this = this;
         // 点击搜索按钮以后，做搜索提交
         $('#search-btn').click(function () {
-            console.log(123)
             _this.searchSubmit();
         });
         // 回车后，做搜索提交
