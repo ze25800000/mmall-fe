@@ -33,6 +33,7 @@
     border: 1px solid red;
     color: red;
     background: #fde9e9;
+    display: none;
 }
 
 /* 错误图标 */
