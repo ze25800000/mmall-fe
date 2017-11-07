@@ -2,7 +2,7 @@ require('./index.css');
 require('page/common/nav-simple/index.css');
 var _user = require('service/user-server');
 var _mm = require('util/mm');
-var fromError = {
+var formError = {
     //表单里的错误提示
     show: function (errMsg) {
         $('.error-item').show().find('.err-msg').text(errMsg);
@@ -26,9 +26,9 @@ var page = {
             }
             //异步验证用户名是否存在
             _user.checkUsername(username, function (res) {
-                fromError.hide();
+                formError.hide();
             }, function (errMsg) {
-                fromError.show(errMsg);
+                formError.show(errMsg);
             })
         })
         //注册按钮的点击
@@ -59,10 +59,10 @@ var page = {
             _user.register(formData, function (res) {
                 window.location.href = './result.html?type=register';
             }, function (errMsg) {
-                fromError.show(errMsg);
+                formError.show(errMsg);
             })
         } else {
-            fromError.show(validateResult.msg);
+            formError.show(validateResult.msg);
         }
     },
     // 表单验证的验证

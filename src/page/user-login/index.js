@@ -2,7 +2,7 @@ require('./index.css');
 require('page/common/nav-simple/index.css');
 var _user = require('service/user-server');
 var _mm = require('util/mm');
-var fromError = {
+var formError = {
     //表单里的错误提示
     show: function (errMsg) {
         $('.error-item').show().find('.err-msg').text(errMsg);
@@ -38,13 +38,12 @@ var page = {
         validateResult = this.formValidate(formData);
         if (validateResult.status) {
             _user.login(formData, function (res) {
-                console.log(123123)
-                // window.location.href = _mm.getUrlParam('redirect') || './index.html';
+                window.location.href = _mm.getUrlParam('redirect') || './index.html';
             }, function (errMsg) {
-                fromError.show(errMsg);
+                formError.show(errMsg);
             })
         } else {
-            fromError.show(validateResult.msg);
+            formError.show(validateResult.msg);
         }
     },
     // 表单验证的验证
