@@ -33,6 +33,15 @@ var _user = {
             error: reject
         });
     },
+    // 检查登录状态
+    checkLogin: function (resolve, reject) {
+        _mm.request({
+            url: _mm.getServerUrl('/user/get_user_info.do'),
+            method: 'POST',
+            success: resolve,
+            error: reject
+        });
+    },
     // 获取用户密码提示问题
     getQuestion: function (username, resolve, reject) {
         _mm.request({
@@ -65,10 +74,19 @@ var _user = {
             error: reject
         });
     },
+    //获取用户信息
+    getUserInfo: function (resolve, reject) {
+        _mm.request({
+            url: _mm.getServerUrl('/user/get_information.do'),
+            method: 'POST',
+            success: resolve,
+            error: reject
+        });
+    },
     // 登出
     logout: function (resolve, reject) {
         _mm.request({
-            url: _mm.getServerUrl('user/logout.do'),
+            url: _mm.getServerUrl('/user/logout.do'),
             method: 'POST',
             success: resolve,
             error: reject

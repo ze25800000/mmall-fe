@@ -1,6 +1,6 @@
 require('./index.css');
 require('page/common/nav-simple/index.css');
-var _user = require('service/user-server');
+var _user = require('service/user-service');
 var _mm = require('util/mm');
 var formError = {
     //表单里的错误提示

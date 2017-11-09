@@ -1,6 +1,6 @@
 require('./index.css')
 var _mm = require('util/mm.js');
-var _user = require('service/user-server');
+var _user = require('service/user-service');
 var _cart = require('service/cart-service');
 // 导航
 var nav = {

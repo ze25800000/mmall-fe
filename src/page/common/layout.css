@@ -17,9 +17,11 @@ img {
     display: inline-block;
     border: none;
 }
+
 a {
     text-decoration: none;
 }
+
 label {
     cursor: pointer;
 }
@@ -33,6 +35,25 @@ input[type='checkbox'] {
     width: 1080px;
     margin: 0 auto;
     position: relative;
+    overflow: hidden;
+}
+
+/* panel */
+.pannel {
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #ffffff;
+}
+
+.panel .panel-title {
+    padding: 10px;
+    font-size: 14px;
+    color: #666666;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+}
+.panel .panel-body {
+    padding: 10px;
     overflow: hidden;
 }
 
@@ -85,6 +106,7 @@ input[type='checkbox'] {
     padding: 0 10px;
     color: #ffffff;
 }
+
 .loading {
     margin: 10px auto;
     display: block;
