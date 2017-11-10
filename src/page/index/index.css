@@ -1,3 +1,29 @@
-body {
-    background-color: #999;
+.keywords-list {
+    float: left;
+    width: 240px;
+    height: 350px;
+    padding: 10px 0;
+    margin-right: 10px;
+    background: #666666;
+    color: #ffffff;
+}
+
+.keywords-list .keywords-item {
+    padding-left: 10px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+}
+
+.keywords-list .keywords-item .link {
+    color: #ffffff;
+    margin-right: 6px;
+}
+
+.keywords-list .keywords-item .link:hover {
+    color: #c60023;
+}
+
+.keywords-list .keywords-item:hover {
+    background: #999999;
 }
