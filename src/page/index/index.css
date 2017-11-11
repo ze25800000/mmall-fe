@@ -27,3 +27,56 @@
 .keywords-list .keywords-item:hover {
     background: #999999;
 }
+
+.banner-con {
+    width: 830px;
+    background: #eeeeee;
+    float: left;
+    height: 370px;
+}
+
+.banner-con .loading {
+    margin-top: 150px;
+}
+
+/* floor */
+.floor-wrap .floor-title {
+    height: 50px;
+    line-height: 50px;
+    color: #d58717;
+    font-weight: normal;
+    font-size: 20px;
+    border-bottom: 1px solid #d58717;
+}
+
+.floor-wrap .floor-list {
+    margin-right: -20px;
+    overflow: hidden;
+}
+
+.floor-wrap .floor-list .floor-item {
+    position: relative;
+    width: 200px;
+    height: 220px;
+    margin: 15px 20px 15px 0;
+    float: left;
+    cursor: pointer;
+    background: #ffffff;
+}
+
+.floor-wrap .floor-list .floor-item .floor-text {
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    font-size: 16px;
+    color: #555555;
+}
+
+.floor-wrap .floor-list .floor-item .floor-img {
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+    width: 80%;
+    height: 75%;
+    border: none;
+}
