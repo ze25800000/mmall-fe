@@ -66,7 +66,6 @@ var page = {
         var _this = this,
             listHtml = '',
             listParam = this.data.listParam;
-        console.log(listParam)
         _product.getProductList(listParam, function (res) {
             listHtml = _mm.renderHtml(templateIndex, {
                 list: res.list
