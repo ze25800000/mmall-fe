@@ -26,6 +26,23 @@ var page = {
     },
     //加载detail数据
     loadDetail: function () {
+        var _this = this,
+            html = '',
+            $pageWrap = $('.page-wrap');
+        // loading
+        $pageWrap.html('<div class="loading"></div>');
+        // 请求detail信息
+        _product.getProductDetail(this.data.productId, function (res) {
+            _this.filter(res);
+            html = _mm.renderHtml(templateIndex, res);
+            $pageWrap.html(html);
+        }, function (errMsg) {
+            $pageWrap.html('<p class="err-tip">找不到商品</p>');
+        });
+    },
+    // 图片
+    filter: function (data) {
+        data.subImages = data.subImages.split(',');
     }
 }
 $(function () {
