@@ -19,7 +19,6 @@ var page = {
     init: function () {
         this.onLoad();
         this.bindEvent();
-        this.loadList();
     },
     onLoad: function () {
         this.loadList();
