@@ -17,6 +17,14 @@ var _cart = {
             success: resolve,
             error: reject
         });
+    },
+    // 获取购物车列表
+    getCartList: function (resolve, reject) {
+        _mm.request({
+            url: _mm.getServerUrl('/cart/list.do'),
+            success: resolve,
+            error: reject
+        });
     }
 }
 module.exports = _cart;
