@@ -1,6 +1,6 @@
 require('./index.css');
-require('page/common/nav/index.js');
 require('page/common/header/index.js');
+var nav = require('page/common/nav/index.js');
 var _mm = require('util/mm.js');
 var _cart = require('service/cart-service.js');
 var templateIndex = require('./index.str');
@@ -90,7 +90,32 @@ var page = {
                 var productId = $(this).parents('.cart-table').data('product-id');
                 _this.delectCartProduct(productId);
             }
-        })
+        });
+        //删除选中
+        $(document).on('click', '.delete-selected', function () {
+            if (window.confirm('你确认要删除选中的商品？')) {
+                var arrProductIds = [],
+                    $selectedItem = $('.cart-select:checked');
+                for (var i = 0, iLength = $selectedItem.length; i < iLength; i++) {
+                    arrProductIds.push($($selectedItem[i]).parents('.cart-table').data('product-id'));
+                }
+                if (arrProductIds.length) {
+                    _this.delectCartProduct(arrProductIds.join(','));
+                } else {
+                    _mm.errorTips('您还没有选中要删除的商品');
+                }
+
+            }
+        });
+        //去结算
+        $(document).on('click', '.btn-submit', function () {
+            // 总结大于0，进行提交
+            if (_this.data.cartInfo && _this.data.cartInfo.cartTotalPrice > 0) {
+                window.location.href = './confirm.html';
+            } else {
+                _mm.errorTips('请选择商品后再提交')
+            }
+        });
     },
     // 加载购物车信息
     loadCart: function () {
@@ -123,6 +148,8 @@ var page = {
         // 生成HTML
         var cartHtml = _mm.renderHtml(templateIndex, data);
         $('.page-wrap').html(cartHtml);
+        //通知导航的购物车更新数量
+        nav.loadCartCount()
     },
     showCartError: function (err) {
         $('.page-wrap').html('<p class="err-tip">' + err + '</p>');
