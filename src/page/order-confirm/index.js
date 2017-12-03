@@ -21,6 +21,27 @@ var page = {
         this.loadProductList();
     },
     bindEvent: function () {
+        var _this = this;
+        // 地址的选择
+        $(document).on('click', '.address-item', function () {
+            $(this).addClass('active').siblings('.address-item').removeClass('active');
+            _this.data.selectedAddressId = $(this).data('id');
+        });
+        // 订单的提交
+        $(document).on('click', '.order-submit', function () {
+            var shippingId = _this.selectedAddressId;
+            if (shippingId) {
+                _order.createOrder({
+                    shippingId: shippingId
+                }, function (res) {
+                    window.location.href = './payment.html?orderNumber=' + res.orderNo;
+                }, function (errMsg) {
+                    _mm.errorTips(errMsg);
+                });
+            } else {
+                _mm.errorTips('请选择地址后在提交');
+            }
+        });
     },
     // 加载地址列表
     loadAddressList: function () {
