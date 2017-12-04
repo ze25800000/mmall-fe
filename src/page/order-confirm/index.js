@@ -7,6 +7,7 @@ var _order = require('service/order-service.js');
 var _address = require('service/address-service.js');
 var templateAddress = require('./address-list.str');
 var templateProduct = require('./product-list.str');
+var addressModal = require('./address-modal')
 
 var page = {
     data: {
@@ -42,6 +43,15 @@ var page = {
                 _mm.errorTips('请选择地址后在提交');
             }
         });
+        // 地址的添加
+        $(document).on('click', '.address-add', function () {
+            addressModal.show({
+                isUpdate: false,
+                onSuccess: function () {
+                    _this.loadAddressList();
+                }
+            })
+        });
     },
     // 加载地址列表
     loadAddressList: function () {
@@ -57,7 +67,7 @@ var page = {
     // 加载商品清单
     loadProductList: function () {
         var _this = this;
-        _address.getProductList(function (res) {
+        _order.getProductList(function (res) {
             var ProductListHtml = _mm.renderHtml(templateProduct, res);
             $('.product-con').html(ProductListHtml);
             _this.renderCart(res);
