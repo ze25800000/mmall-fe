@@ -38,6 +38,16 @@ var _order = {
             success: resolve,
             error: reject
         });
+    },
+    // 取消订单
+    cancelOrder: function (orderNumber, resolve, reject) {
+        _mm.request({
+            url: _mm.getServerUrl('/order/cancel.do'),
+            data: {orderNo: orderNumber},
+            success: resolve,
+            error: reject
+        });
     }
+
 };
 module.exports = _order;
